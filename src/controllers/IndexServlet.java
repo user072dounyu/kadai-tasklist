@@ -4,13 +4,14 @@ import java.io.IOException;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import models.Message;
+import models.Task;
 import utils.DBUtil;
 
 /**
@@ -34,13 +35,15 @@ public class IndexServlet extends HttpServlet {
             throws ServletException, IOException {
         EntityManager em = DBUtil.createEntityManager();
 
-        List<Message> messages = em.createNamedQuery("getAllMessages", Message.class).getResultList();
+        List<Task> tasks = em.createNamedQuery("getAllTasks", Task.class).getResultList();
         /*
-         *getAllMessagesをcreateNamedQueryメソッドの引数に指定した→データベースへの問い合わせを実行できる
+         *getAllTasksをcreateNamedQueryメソッドの引数に指定した→データベースへの問い合わせを実行できる
          その問い合わせ結果を getResultList() メソッドを使ってリスト形式で取得
           */
-        response.getWriter().append(Integer.valueOf(messages.size()).toString());
+        request.setAttribute("tasks", tasks);
 
+        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/tasks/index.jsp");
+        rd.forward(request, response);
         em.close();
     }
 }
