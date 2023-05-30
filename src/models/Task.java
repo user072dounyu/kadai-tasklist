@@ -14,7 +14,16 @@ import javax.persistence.Table;
 
 @Entity
 @NamedQueries({
-        @NamedQuery(name = "getAllTasks", query = "SELECT m FROM Task AS m ORDER BY m.id DESC")//「SELECT m」 はSQL文の「SELECT *」と同じ意味。
+        @NamedQuery(
+                name = "getAllTasks",
+                query = "SELECT m FROM Task AS m ORDER BY m.id DESC"
+                ),
+
+        //「SELECT m」 はSQL文の「SELECT *」と同じ意味。
+        @NamedQuery(
+                name = "getTasksCount",
+                query = "SELECT COUNT(m) FROM Task AS m"
+                )
 })//FROM tasks AS m = tasksテーブルを参照する。tasksテーブルを今後mと呼ぶ。mは自分で変えてもいい。jpqlの書き方でFROMの後はクラス名を入れる。
 @Table(name = "tasks")//テーブルはtasksだと言っている
 public class Task {
