@@ -12,9 +12,7 @@
                     <a href="${pageContext.request.contextPath}/show?id=${task.id}"> <%--taskの中には繰り返し中のデータが入っている --%>
                         <c:out value="${task.id}" />  <%--taskの中には繰り返し中のデータが入っている --%>
                     </a>
-                     <a href="${pageContext.request.contextPath}/show?content=${task.content}"> <%--taskの中には繰り返し中のデータが入っている --%>
-                        <c:out value="${task.content}" />  <%--taskの中には繰り返し中のデータが入っている --%>
-                    </a>
+                     ：<c:out value="${task.content}" />
                 </li>
             </c:forEach>
         </ul>
