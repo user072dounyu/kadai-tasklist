@@ -7,7 +7,7 @@
         <c:choose>
             <c:when test="${task != null}">
                 <h2>id : ${task.id} のtask詳細ページ</h2>
-                <%--taskはクラス名 --%>>
+                <%--taskはクラス名 --%>
 
                     <table>
                     <tbody>
