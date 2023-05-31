@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import models.Task;
-import models.validators.MessageValidator;
+import models.validators.TaskValidator;
 import utils.DBUtil;
 /**
  * Servlet implementation class CreateServlet
@@ -51,7 +51,7 @@ public class CreateServlet extends HttpServlet {
             m.setUpdated_at(currentTime);
 
          // バリデーションを実行してエラーがあったら新規登録のフォームに戻る
-            List<String> errors = MessageValidator.validate(m);
+            List<String> errors = TaskValidator.validate(m);
             if(errors.size() > 0) {
                 em.close();
 

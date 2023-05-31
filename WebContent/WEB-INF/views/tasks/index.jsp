@@ -8,7 +8,7 @@
                 <c:out value="${flush}"></c:out>
             </div>
         </c:if>
-        <h2>tasklist</h2>
+        <h2>タスク</h2>
         <ul>
             <c:forEach var="task" items="${tasks}">
                 <%--itemsに繰り返したいデータを指定する、だからtasks（データベースに保存されているタスクのデータ）を入れる
@@ -34,7 +34,7 @@
             </c:forEach>
         </div>
         <p>
-            <a href="${pageContext.request.contextPath}/new">新規taskの投稿</a>
+            <a href="${pageContext.request.contextPath}/new">新規タスクの投稿</a>
         </p>
 
     </c:param>
